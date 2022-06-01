@@ -6,10 +6,6 @@
 #include <openssl/err.h>
 #include <openssl/ssl.h>
 
-//libc
-#include <ctime>
-
-
 //C++ STL
 #include <sstream>
 #include <iostream>
@@ -209,8 +205,6 @@ class Https_client{
 
 
 int main(){
-    //start time
-    std::cout << "start time: " << time(0) << std::endl;
     
     //create client with path to certificates directory
     Https_client client{"etc/ssl/certs/"};
@@ -237,8 +231,5 @@ int main(){
     std::cout << client.build_request() << std::endl;
     std::cout << client.send_request() << std::endl;
     
-    //end time
-    std::cout << "end time: " << time(0) << std::endl;
-    std::cout << "done" << std::endl;
     return 0;
 }
